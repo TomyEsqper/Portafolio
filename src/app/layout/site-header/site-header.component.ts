@@ -28,6 +28,7 @@ export class SiteHeaderComponent {
       { href: '/#projects', label: nav.projects },
       { href: '/#experience', label: nav.experience },
       { href: '/#education', label: nav.education },
+      { href: '/#architecture', label: nav.architecture },
       { href: '/#contact', label: nav.contact },
     ];
   });

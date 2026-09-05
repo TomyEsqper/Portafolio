@@ -47,6 +47,7 @@ export interface LocaleUi {
     projects: string;
     experience: string;
     education: string;
+    architecture: string;
     contact: string;
   };
   hero: {
@@ -89,6 +90,13 @@ export interface LocaleUi {
     label: string;
     title: string;
     lead: string;
+  };
+  architecture: {
+    label: string;
+    title: string;
+    lead: string;
+    flow: string;
+    points: { title: string; body: string }[];
   };
   certifications: {
     lead: string;

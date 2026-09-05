@@ -27,6 +27,7 @@ export const en: LocaleContent = {
       projects: 'Projects',
       experience: 'Experience',
       education: 'Education',
+      architecture: 'Architecture',
       contact: 'Contact',
     },
     hero: {
@@ -66,9 +67,33 @@ export const en: LocaleContent = {
       currentBadge: 'In progress',
     },
     contact: {
-      label: '07 — Contact',
+      label: '08 — Contact',
       title: "Let's talk about your next system",
       lead: 'Open to backend roles, .NET projects, and conversations about architecture.',
+    },
+    architecture: {
+      label: '07 — Architecture',
+      title: 'How this site is deployed',
+      lead: 'This portfolio also shows cloud hosting and continuous delivery, without forcing unnecessary complexity.',
+      flow: 'Angular build → Amazon S3 → CloudFront · PR → CI · merge to main → CD',
+      points: [
+        {
+          title: 'Static frontend',
+          body: 'Angular 19 compiles to static files. There is no app server for the UI — just HTML, CSS, JS, and assets.',
+        },
+        {
+          title: 'S3 + CloudFront',
+          body: 'S3 stores the build and CloudFront delivers it over CDN with HTTPS, caching, and SPA fallbacks for frontend routes.',
+        },
+        {
+          title: 'CI/CD with GitHub Actions',
+          body: 'Every Pull Request validates build and tests. Merging to main publishes to S3 and invalidates CloudFront.',
+        },
+        {
+          title: 'Why not Lambda here',
+          body: 'This site does not need backend compute. Lambda would fit a separate .NET API, not for serving this frontend.',
+        },
+      ],
     },
     certifications: {
       lead: '{{count}} certificates · They scroll on their own. Click to select one.',

@@ -27,6 +27,8 @@ npm test
 
 ## Arquitectura de despliegue
 
+En el sitio hay una sección **Arquitectura** que explica esto mismo para entrevistas y demos.
+
 ```text
 Angular build → S3 → CloudFront
 PR → CI (build/test)

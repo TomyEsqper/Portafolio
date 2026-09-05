@@ -1,0 +1,27 @@
+<section class="section architecture" id="architecture" aria-labelledby="architecture-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().architecture.label }}</p>
+    <h2 id="architecture-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().architecture.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().architecture.lead }}
+    </p>
+
+    <p class="architecture__flow" appReveal style="--reveal-delay: 140ms">
+      {{ ui().architecture.flow }}
+    </p>
+
+    <ol class="architecture__points">
+      @for (point of ui().architecture.points; track point.title; let i = $index) {
+        <li class="architecture__point" appReveal [style.--reveal-delay]="180 + i * 70 + 'ms'">
+          <span class="architecture__point-index">{{ '0' + (i + 1) }}</span>
+          <div>
+            <h3 class="architecture__point-title">{{ point.title }}</h3>
+            <p class="architecture__point-body">{{ point.body }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
