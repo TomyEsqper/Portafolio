@@ -22,6 +22,7 @@ export const es: LocaleContent = {
     nav: {
       about: 'Sobre mí',
       certifications: 'Certificaciones',
+      recognitions: 'Reconocimientos',
       stack: 'Stack',
       projects: 'Proyectos',
       experience: 'Experiencia',
@@ -41,31 +42,31 @@ export const es: LocaleContent = {
       loading: 'Cargando certificaciones…',
     },
     stack: {
-      label: '02 — Stack',
+      label: '03 — Stack',
       title: 'Herramientas con las que construyo',
       lead: 'Del dominio a la infraestructura: C#, APIs, datos y flujo profesional de entrega.',
     },
     projects: {
-      label: '03 — Proyectos',
+      label: '04 — Proyectos',
       title: 'Trabajo que cuenta',
       lead: 'Microservicios .NET y una plataforma laboral real — arquitectura, datos y entrega.',
     },
     experience: {
-      label: '04 — Trayectoria',
+      label: '05 — Trayectoria',
       title: 'Experiencia laboral',
       lead: 'Agrupado por empresa — evolución de roles dentro de cada una.',
       ariaLabel: 'Experiencia por empresa',
       currentBadge: 'Actual',
     },
     education: {
-      label: '05 — Formación',
+      label: '06 — Formación',
       title: 'Educación superior',
       lead: 'Formación académica que respalda el perfil backend.',
       ariaLabel: 'Formación académica',
       currentBadge: 'En curso',
     },
     contact: {
-      label: '06 — Contacto',
+      label: '07 — Contacto',
       title: 'Hablemos de tu próximo sistema',
       lead: 'Abierto a roles backend, proyectos .NET y conversaciones sobre arquitectura.',
     },
@@ -78,10 +79,39 @@ export const es: LocaleContent = {
       imageFallback: 'Imagen en',
       certAlt: 'Certificado:',
     },
+    recognitions: {
+      label: '02 — Reconocimientos',
+      title: 'Logros que marcan el camino',
+      lead: 'Premios y reconocimientos que respaldan aprendizaje aplicado y resultados visibles.',
+      previewLabel: 'Vista previa',
+      placeholder: 'Imagen pendiente de cargar',
+    },
     footer: {
       tagline: 'Backend · .NET',
     },
   },
+  recognitions: [
+    {
+      id: 'programaton-cun',
+      title: 'Programatón CUN',
+      issuer: 'Corporación Unificada Nacional de Educación Superior — CUN',
+      date: 'Nov 2024',
+      kind: 'Primer puesto · Nivel intermedio',
+      description:
+        'Reconocimiento por obtener el primer puesto en la Programatón de nivel intermedio, reflejando constancia, lógica y resolución de problemas en competencia.',
+    },
+    {
+      id: 'sena-meaningful-learning',
+      title:
+        'Reconocimiento de la ciencia, la tecnología y la innovación a partir de metodologías experienciales para alcanzar aprendizajes significativos',
+      issuer: 'Servicio Nacional de Aprendizaje — SENA',
+      date: 'Dic 2020',
+      kind: 'Reconocimiento académico',
+      description:
+        'Reconocimiento orientado al pensamiento científico, la innovación y la aplicación práctica del conocimiento mediante metodologías experienciales.',
+      image: '/certificates/sena-meaningful-learning.png',
+    },
+  ],
   stackGroups: [
     {
       title: 'Backend',

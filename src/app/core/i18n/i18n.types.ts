@@ -17,6 +17,16 @@ export interface LocalizedProject {
   links: { label: string; href: string }[];
 }
 
+export interface LocalizedRecognition {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  image?: string;
+  kind?: string;
+}
+
 export interface LocaleProfile {
   role: string;
   location: string;
@@ -32,6 +42,7 @@ export interface LocaleUi {
   nav: {
     about: string;
     certifications: string;
+    recognitions: string;
     stack: string;
     projects: string;
     experience: string;
@@ -88,6 +99,13 @@ export interface LocaleUi {
     imageFallback: string;
     certAlt: string;
   };
+  recognitions: {
+    label: string;
+    title: string;
+    lead: string;
+    previewLabel: string;
+    placeholder: string;
+  };
   footer: {
     tagline: string;
   };
@@ -98,6 +116,7 @@ export interface LocaleContent {
   profile: LocaleProfile;
   ui: LocaleUi;
   stackGroups: StackGroup[];
+  recognitions: LocalizedRecognition[];
   projects: LocalizedProject[];
   experience: CompanyExperience[];
   education: EducationInstitution[];

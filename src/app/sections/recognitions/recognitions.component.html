@@ -1,0 +1,49 @@
+<section class="section recognitions" id="recognitions" aria-labelledby="recognitions-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().recognitions.label }}</p>
+    <h2 id="recognitions-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().recognitions.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().recognitions.lead }}
+    </p>
+
+    <div class="recognitions__grid">
+      <div class="recognitions__list" appReveal style="--reveal-delay: 140ms">
+        @for (recognition of recognitions(); track recognition.id) {
+          <button
+            type="button"
+            class="recognition-card"
+            [class.recognition-card--active]="isSelected(recognition)"
+            [attr.aria-pressed]="isSelected(recognition)"
+            (click)="selectRecognition(recognition)"
+          >
+            <p class="recognition-card__kind">{{ recognition.kind }}</p>
+            <h3 class="recognition-card__title">{{ recognition.title }}</h3>
+            <p class="recognition-card__meta">{{ recognition.issuer }}</p>
+            <p class="recognition-card__date">{{ recognition.date }}</p>
+            <p class="recognition-card__desc">{{ recognition.description }}</p>
+          </button>
+        }
+      </div>
+
+      <article class="recognition-preview" appReveal style="--reveal-delay: 200ms">
+        @if (selectedRecognition(); as recognition) {
+          <p class="recognition-preview__label">{{ ui().recognitions.previewLabel }}</p>
+          <h3 class="recognition-preview__title">{{ recognition.title }}</h3>
+          <p class="recognition-preview__meta">{{ recognition.issuer }} · {{ recognition.date }}</p>
+
+          <div class="recognition-preview__figure">
+            @if (recognition.image) {
+              <img [src]="recognition.image" [alt]="recognition.title" loading="lazy" decoding="async" />
+            } @else {
+              <div class="recognition-preview__placeholder">{{ ui().recognitions.placeholder }}</div>
+            }
+          </div>
+
+          <p class="recognition-preview__desc">{{ recognition.description }}</p>
+        }
+      </article>
+    </div>
+  </div>
+</section>

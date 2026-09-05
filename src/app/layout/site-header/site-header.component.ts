@@ -23,6 +23,7 @@ export class SiteHeaderComponent {
     return [
       { href: '/#about', label: nav.about },
       { href: '/#certificaciones', label: nav.certifications },
+      { href: '/#recognitions', label: nav.recognitions },
       { href: '/#stack', label: nav.stack },
       { href: '/#projects', label: nav.projects },
       { href: '/#experience', label: nav.experience },

@@ -15,6 +15,25 @@ export interface CertificationIssuer {
 
 /** Ruta en public/certificates/{id}.webp — reemplaza con tu captura/PDF exportado */
 export function certImage(id: string): string {
+  const pngIds = new Set([
+    'cf-datos',
+    'cf-english',
+    'sena-prototipos',
+    'sena-circuitos',
+    'sena-investigacion-app',
+    'sena-investigacion-base',
+    'sena-modding',
+    'sena-simulacion',
+    'sena-robots',
+    'sena-firmware',
+    'uci-decisions',
+    'ibm-genai',
+  ]);
+
+  if (pngIds.has(id)) {
+    return `/certificates/${id}.png`;
+  }
+
   return `/certificates/${id}.webp`;
 }
 

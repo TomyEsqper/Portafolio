@@ -22,6 +22,7 @@ export const en: LocaleContent = {
     nav: {
       about: 'About',
       certifications: 'Certifications',
+      recognitions: 'Recognitions',
       stack: 'Stack',
       projects: 'Projects',
       experience: 'Experience',
@@ -41,31 +42,31 @@ export const en: LocaleContent = {
       loading: 'Loading certifications…',
     },
     stack: {
-      label: '02 — Stack',
+      label: '03 — Stack',
       title: 'Tools I build with',
       lead: 'From domain to infrastructure: C#, APIs, data, and a professional delivery workflow.',
     },
     projects: {
-      label: '03 — Projects',
+      label: '04 — Projects',
       title: 'Work that speaks',
       lead: '.NET microservices and a real job platform — architecture, data, and delivery.',
     },
     experience: {
-      label: '04 — Career',
+      label: '05 — Career',
       title: 'Work experience',
       lead: 'Grouped by company — role progression within each organization.',
       ariaLabel: 'Experience by company',
       currentBadge: 'Current',
     },
     education: {
-      label: '05 — Education',
+      label: '06 — Education',
       title: 'Higher education',
       lead: 'Academic background supporting the backend profile.',
       ariaLabel: 'Academic education',
       currentBadge: 'In progress',
     },
     contact: {
-      label: '06 — Contact',
+      label: '07 — Contact',
       title: "Let's talk about your next system",
       lead: 'Open to backend roles, .NET projects, and conversations about architecture.',
     },
@@ -78,10 +79,39 @@ export const en: LocaleContent = {
       imageFallback: 'Image at',
       certAlt: 'Certificate:',
     },
+    recognitions: {
+      label: '02 — Recognitions',
+      title: 'Milestones worth showing',
+      lead: 'Awards and recognitions that reflect applied learning and visible results.',
+      previewLabel: 'Preview',
+      placeholder: 'Image pending upload',
+    },
     footer: {
       tagline: 'Backend · .NET',
     },
   },
+  recognitions: [
+    {
+      id: 'programaton-cun',
+      title: 'CUN Programming Contest',
+      issuer: 'Unified National Corporation of Higher Education — CUN',
+      date: 'Nov 2024',
+      kind: 'First place · Intermediate level',
+      description:
+        'Recognition for achieving first place in the intermediate-level programming contest, showing consistency, logic, and problem-solving under competition conditions.',
+    },
+    {
+      id: 'sena-meaningful-learning',
+      title:
+        'Recognition of science, technology, and innovation through experiential methodologies to achieve meaningful learning',
+      issuer: 'National Learning Service — SENA',
+      date: 'Dec 2020',
+      kind: 'Academic recognition',
+      description:
+        'Recognition focused on scientific thinking, innovation, and the practical application of knowledge through experiential learning methodologies.',
+      image: '/certificates/sena-meaningful-learning.png',
+    },
+  ],
   stackGroups: [
     {
       title: 'Backend',
