@@ -19,10 +19,16 @@ if (-not (Test-Path $BuildPath)) {
 
 Write-Host "Syncing Angular build from '$BuildPath' to s3://$BucketName ..."
 aws s3 sync $BuildPath "s3://$BucketName" --delete
+if ($LASTEXITCODE -ne 0) {
+    throw "S3 sync failed with exit code $LASTEXITCODE."
+}
 
 if ($DistributionId) {
     Write-Host "Creating CloudFront invalidation for distribution '$DistributionId' ..."
     aws cloudfront create-invalidation --distribution-id $DistributionId --paths "/*"
+    if ($LASTEXITCODE -ne 0) {
+        throw "CloudFront invalidation failed with exit code $LASTEXITCODE."
+    }
 }
 else {
     Write-Host "Skipping CloudFront invalidation because no distribution ID was provided."
