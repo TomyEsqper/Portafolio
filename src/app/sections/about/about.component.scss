@@ -1,0 +1,53 @@
+.about__grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 48rem;
+}
+
+.about__text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+}
+
+.about__certs {
+  margin-top: clamp(3.5rem, 8vw, 5rem);
+}
+
+.about__certs-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.about__certs-divider::before,
+.about__certs-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ink);
+}
+
+.about__certs-divider span {
+  font-family: var(--display);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.about__certs-loading {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}

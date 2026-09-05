@@ -1,0 +1,19 @@
+<section class="hero" id="top" aria-labelledby="hero-name">
+  <div class="hero__atmosphere" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__meta">
+      <span>{{ locale().profile.location }}</span>
+      <span aria-hidden="true">·</span>
+      <span>{{ locale().profile.english }}</span>
+    </p>
+
+    <h1 id="hero-name" class="hero__name">{{ profile.name }}</h1>
+    <p class="hero__role">{{ locale().profile.role }}</p>
+    <p class="hero__summary">{{ locale().profile.summary }}</p>
+
+    <div class="hero__actions">
+      <a class="hero__cta hero__cta--primary" href="#projects">{{ ui().hero.ctaProjects }}</a>
+      <a class="hero__cta" href="#contact">{{ ui().hero.ctaContact }}</a>
+    </div>
+  </div>
+</section>

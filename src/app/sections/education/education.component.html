@@ -1,0 +1,124 @@
+<section class="section education" id="education" aria-labelledby="education-title">
+
+  <div class="section__inner">
+
+    <p class="section__label" appReveal>{{ ui().education.label }}</p>
+
+    <h2 id="education-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+
+      {{ ui().education.title }}
+
+    </h2>
+
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+
+      {{ ui().education.lead }}
+
+    </p>
+
+
+
+    <ol class="schools" [attr.aria-label]="ui().education.ariaLabel">
+
+      @for (school of schools(); track school.id; let si = $index) {
+
+        <li
+
+          class="school"
+
+          appReveal
+
+          [style.--reveal-delay]="120 + si * 100 + 'ms'"
+
+        >
+
+          <header class="school__head">
+
+            <div class="school__logo" aria-hidden="true">{{ initials(school.org) }}</div>
+
+            <h3 class="school__name">{{ school.org }}</h3>
+
+          </header>
+
+
+
+          <ol
+
+            class="school__programs"
+
+            [class.school__programs--multi]="isMultiProgram(school)"
+
+            [class.school__programs--single]="!isMultiProgram(school)"
+
+          >
+
+            @for (program of school.programs; track program.id; let last = $last) {
+
+              <li
+
+                class="program"
+
+                [class.program--current]="program.current"
+
+                [class.program--last]="last"
+
+              >
+
+                @if (isMultiProgram(school)) {
+
+                  <div class="program__marker" aria-hidden="true">
+
+                    <span class="program__dot"></span>
+
+                  </div>
+
+                }
+
+
+
+                <article class="program__body">
+
+                  <header class="program__head">
+
+                    <h4 class="program__title">{{ program.title }}</h4>
+
+                    @if (program.field) {
+
+                      <p class="program__field">{{ program.field }}</p>
+
+                    }
+
+                    <p class="program__period">{{ program.period }}</p>
+
+                  </header>
+
+
+
+                  @if (program.current) {
+
+                    <span class="program__badge">{{ ui().education.currentBadge }}</span>
+
+                  }
+
+
+
+                  <p class="program__summary">{{ program.highlights[0] }}</p>
+
+                </article>
+
+              </li>
+
+            }
+
+          </ol>
+
+        </li>
+
+      }
+
+    </ol>
+
+  </div>
+
+</section>
+

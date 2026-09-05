@@ -1,0 +1,45 @@
+<section class="section stack" id="stack" aria-labelledby="stack-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().stack.label }}</p>
+    <h2 id="stack-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().stack.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().stack.lead }}
+    </p>
+
+    <div class="stack__marquee" appReveal style="--reveal-delay: 120ms" aria-hidden="true">
+      <div class="stack__marquee-track">
+        @for (item of marqueeItems(); track item) {
+          <span class="stack__marquee-item">{{ item }}</span>
+        }
+        @for (item of marqueeItems(); track 'loop-' + item) {
+          <span class="stack__marquee-item">{{ item }}</span>
+        }
+      </div>
+    </div>
+
+    <div class="stack__catalog">
+      @for (group of groups(); track group.title; let i = $index) {
+        <article
+          class="stack__row"
+          appReveal
+          [style.--reveal-delay]="160 + i * 70 + 'ms'"
+        >
+          <header class="stack__row-head">
+            <span class="stack__row-code">{{ group.code }}</span>
+            <h3 class="stack__row-title">{{ group.title }}</h3>
+          </header>
+
+          <p class="stack__row-items">
+            @for (item of group.items; track item; let last = $last) {
+              <span class="stack__item">{{ item }}</span>@if (!last) {
+                <span class="stack__sep" aria-hidden="true">·</span>
+              }
+            }
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

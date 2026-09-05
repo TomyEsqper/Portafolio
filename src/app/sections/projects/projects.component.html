@@ -1,0 +1,52 @@
+<section class="section projects" id="projects" aria-labelledby="projects-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().projects.label }}</p>
+    <h2 id="projects-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().projects.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().projects.lead }}
+    </p>
+
+    <div class="projects__list">
+      @for (project of projects(); track project.name; let i = $index) {
+        <article
+          class="project"
+          appReveal
+          [style.--reveal-delay]="120 + i * 90 + 'ms'"
+        >
+          <header class="project__head">
+            <div>
+              <p class="project__kind">{{ project.kind }}</p>
+              <h3 class="project__name">{{ project.name }}</h3>
+            </div>
+            <p class="project__period">{{ project.period }}</p>
+          </header>
+
+          <p class="project__desc">{{ project.description }}</p>
+
+          <ul class="project__points">
+            @for (point of project.highlights; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+
+          <div class="project__meta">
+            <ul class="project__stack">
+              @for (tech of project.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+            <div class="project__links">
+              @for (link of project.links; track link.href) {
+                <a [href]="link.href" target="_blank" rel="noopener noreferrer">
+                  {{ link.label }}
+                </a>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

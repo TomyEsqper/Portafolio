@@ -1,0 +1,262 @@
+<div class="cert-embed" aria-labelledby="certifications-title">
+
+  <p id="certifications-title" class="cert-embed__lead">
+
+    {{ certLead() }}
+
+  </p>
+
+
+
+  <div class="cert-wall">
+
+    <div
+
+      #wallTrack
+
+      class="cert-wall__viewport"
+
+      [class.cert-wall__viewport--paused]="paused() || selectedCert()"
+
+      (mouseenter)="paused.set(true)"
+
+      (mouseleave)="paused.set(false)"
+
+    >
+
+      <div class="cert-wall__track">
+
+        @for (cert of wallCerts(); track cert.id) {
+
+          <button
+
+            type="button"
+
+            class="cert-frame"
+
+            [id]="'cert-frame-' + cert.id"
+
+            [class.cert-frame--selected]="isSelected(cert)"
+
+            [class.cert-frame--portrait]="orientation(cert.id) === 'portrait'"
+
+            [class.cert-frame--landscape]="orientation(cert.id) === 'landscape'"
+
+            [class.cert-frame--square]="orientation(cert.id) === 'square'"
+
+            [style.--wall-rotate]="cert.wallRotate + 'deg'"
+
+            [style.--wall-y]="cert.wallYOffset + 'px'"
+
+            [attr.aria-pressed]="isSelected(cert)"
+
+            (click)="toggleSelect(cert)"
+
+          >
+
+            <span class="cert-frame__mat">
+
+              @if (!imageBroken(cert.id)) {
+
+                <img
+
+                  [src]="cert.image"
+
+                  [alt]="cert.title"
+
+                  loading="lazy"
+
+                  decoding="async"
+
+                  draggable="false"
+
+                  (load)="onImageLoad($event, cert.id)"
+
+                  (error)="onImageError(cert.id)"
+
+                />
+
+              } @else {
+
+                <span class="cert-frame__placeholder">
+
+                  <span class="cert-frame__placeholder-org">{{ initials(cert.issuerOrg) }}</span>
+
+                  <span class="cert-frame__placeholder-text">{{ shortTitle(cert.title) }}</span>
+
+                </span>
+
+              }
+
+            </span>
+
+
+
+            <span class="cert-frame__caption">
+
+              <span class="cert-frame__caption-org">{{ shortIssuer(cert.issuerOrg) }}</span>
+
+              <span class="cert-frame__caption-title">{{ shortTitle(cert.title) }}</span>
+
+            </span>
+
+          </button>
+
+        }
+
+
+
+        @for (cert of wallCerts(); track 'loop-' + cert.id) {
+
+          <button
+
+            type="button"
+
+            class="cert-frame cert-frame--loop"
+
+            [class.cert-frame--portrait]="orientation(cert.id) === 'portrait'"
+
+            [class.cert-frame--landscape]="orientation(cert.id) === 'landscape'"
+
+            [class.cert-frame--square]="orientation(cert.id) === 'square'"
+
+            [style.--wall-rotate]="cert.wallRotate + 'deg'"
+
+            [style.--wall-y]="cert.wallYOffset + 'px'"
+
+            tabindex="-1"
+
+            aria-hidden="true"
+
+          >
+
+            <span class="cert-frame__mat">
+
+              @if (!imageBroken(cert.id)) {
+
+                <img [src]="cert.image" alt="" loading="lazy" draggable="false" />
+
+              } @else {
+
+                <span class="cert-frame__placeholder">
+
+                  <span class="cert-frame__placeholder-org">{{ initials(cert.issuerOrg) }}</span>
+
+                </span>
+
+              }
+
+            </span>
+
+          </button>
+
+        }
+
+      </div>
+
+    </div>
+
+
+
+    <p class="cert-wall__hint">{{ ui().certifications.hint }}</p>
+
+  </div>
+
+
+
+  <article
+
+    class="cert-detail"
+
+    [class.cert-detail--visible]="selectedCert()"
+
+    aria-live="polite"
+
+  >
+
+    @if (selectedCert(); as cert) {
+
+      <header class="cert-detail__head">
+
+        <div>
+
+          <p class="cert-detail__org">{{ cert.issuerOrg }}</p>
+
+          <h3 class="cert-detail__title">{{ cert.title }}</h3>
+
+        </div>
+
+        <button type="button" class="cert-detail__close" (click)="clearSelection()">
+
+          {{ ui().certifications.close }}
+
+        </button>
+
+      </header>
+
+
+
+      <div class="cert-detail__body">
+
+        <figure class="cert-detail__figure">
+
+          @if (!imageBroken(cert.id)) {
+
+            <img
+
+              [src]="cert.image"
+
+              [alt]="ui().certifications.certAlt + ' ' + cert.title"
+
+              loading="lazy"
+
+              decoding="async"
+
+              (error)="onImageError(cert.id)"
+
+            />
+
+          } @else {
+
+            <div class="cert-detail__fallback">
+
+              {{ ui().certifications.imageFallback }}
+
+              <code>public/certificates/{{ cert.id }}.webp</code>
+
+            </div>
+
+          }
+
+        </figure>
+
+
+
+        <dl class="cert-detail__meta">
+
+          <div><dt>{{ ui().certifications.issued }}</dt><dd>{{ cert.issued }}</dd></div>
+
+          <div><dt>{{ ui().certifications.credentialId }}</dt><dd>{{ cert.credentialId }}</dd></div>
+
+        </dl>
+
+
+
+        <ul class="cert-detail__skills">
+
+          @for (skill of cert.skills; track skill) {
+
+            <li>{{ skill }}</li>
+
+          }
+
+        </ul>
+
+      </div>
+
+    }
+
+  </article>
+
+</div>
+

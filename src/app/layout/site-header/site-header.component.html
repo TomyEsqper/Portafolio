@@ -1,0 +1,54 @@
+<header class="header" [class.header--scrolled]="scrolled">
+  <div class="header__inner">
+    <a class="header__brand" routerLink="/" (click)="closeMenu()">
+      <span class="header__mark">TE</span>
+      <span class="header__name">Tomás Esquivel</span>
+    </a>
+
+    <nav
+      id="site-nav"
+      class="header__nav"
+      [class.header__nav--open]="menuOpen"
+      [attr.aria-label]="ui().navMain"
+    >
+      @for (link of links(); track link.href) {
+        <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <div class="header__lang" role="group" [attr.aria-label]="ui().langSwitch">
+        <button
+          type="button"
+          class="header__lang-btn"
+          [class.header__lang-btn--active]="lang() === 'es'"
+          [attr.aria-pressed]="lang() === 'es'"
+          (click)="setLang('es')"
+        >
+          ES
+        </button>
+        <button
+          type="button"
+          class="header__lang-btn"
+          [class.header__lang-btn--active]="lang() === 'en'"
+          [attr.aria-pressed]="lang() === 'en'"
+          (click)="setLang('en')"
+        >
+          EN
+        </button>
+      </div>
+
+      <button
+        class="header__toggle"
+        type="button"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="site-nav"
+        (click)="toggleMenu()"
+      >
+        <span class="sr-only">{{ ui().menu }}</span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>

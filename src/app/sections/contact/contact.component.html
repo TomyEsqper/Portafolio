@@ -1,0 +1,18 @@
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().contact.label }}</p>
+    <h2 id="contact-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().contact.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().contact.lead }}
+    </p>
+
+    <div class="contact__links" appReveal style="--reveal-delay: 160ms">
+      <a class="contact__mail" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      <a [href]="telHref">{{ profile.phone }}</a>
+      <a [href]="profile.github" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</section>

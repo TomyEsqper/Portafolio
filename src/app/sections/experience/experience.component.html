@@ -1,0 +1,70 @@
+<section class="section experience" id="experience" aria-labelledby="experience-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().experience.label }}</p>
+    <h2 id="experience-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().experience.title }}
+    </h2>
+    <p class="section__lead" appReveal style="--reveal-delay: 100ms">
+      {{ ui().experience.lead }}
+    </p>
+
+    <ol class="companies" [attr.aria-label]="ui().experience.ariaLabel">
+      @for (company of companies(); track company.id; let ci = $index) {
+        <li
+          class="company"
+          appReveal
+          [style.--reveal-delay]="120 + ci * 120 + 'ms'"
+        >
+          <header class="company__head">
+            <div class="company__logo" aria-hidden="true">{{ initials(company.org) }}</div>
+            <div class="company__info">
+              <h3 class="company__name">{{ company.org }}</h3>
+              <p class="company__tenure">{{ company.totalDuration }}</p>
+              <p class="company__location">
+                {{ company.location }} · {{ company.modality }}
+              </p>
+            </div>
+          </header>
+
+          <ol
+            class="company__roles"
+            [class.company__roles--multi]="company.roles.length > 1"
+            [class.company__roles--single]="company.roles.length === 1"
+          >
+            @for (role of company.roles; track role.id; let last = $last) {
+              <li
+                class="role"
+                [class.role--current]="role.current"
+                [class.role--last]="last"
+              >
+                <div class="role__marker" aria-hidden="true">
+                  <span class="role__dot"></span>
+                </div>
+
+                <article class="role__body">
+                  <header class="role__head">
+                    <h4 class="role__title">{{ role.role }}</h4>
+                    <p class="role__contract">{{ role.contract }}</p>
+                    <p class="role__period">
+                      {{ role.period }} · {{ role.duration }}
+                    </p>
+                  </header>
+
+                  @if (role.current) {
+                    <span class="role__badge">{{ ui().experience.currentBadge }}</span>
+                  }
+
+                  <ul class="role__points">
+                    @for (point of role.points; track point) {
+                      <li>{{ point }}</li>
+                    }
+                  </ul>
+                </article>
+              </li>
+            }
+          </ol>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

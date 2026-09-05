@@ -1,0 +1,28 @@
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="section__inner">
+    <p class="section__label" appReveal>{{ ui().about.label }}</p>
+    <h2 id="about-title" class="section__title" appReveal style="--reveal-delay: 60ms">
+      {{ ui().about.title }}
+    </h2>
+    <div class="about__grid">
+      <p class="about__text" appReveal style="--reveal-delay: 120ms">
+        {{ ui().about.p1 }}
+      </p>
+      <p class="about__text" appReveal style="--reveal-delay: 180ms">
+        {{ ui().about.p2 }}
+      </p>
+    </div>
+
+    <div class="about__certs" id="certificaciones" aria-labelledby="certifications-title">
+      <div class="about__certs-divider" appReveal style="--reveal-delay: 220ms">
+        <span>{{ ui().about.certsDivider }}</span>
+      </div>
+
+      @defer (on viewport) {
+        <app-certifications />
+      } @placeholder {
+        <p class="about__certs-loading">{{ ui().about.loading }}</p>
+      }
+    </div>
+  </div>
+</section>
