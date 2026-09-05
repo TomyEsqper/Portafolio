@@ -12,7 +12,7 @@ export const en: LocaleContent = {
     location: 'Ibagué, Colombia',
     english: 'English B2',
     summary:
-      'I design APIs and microservices in the .NET ecosystem with Clean Architecture, SOLID, and a focus on maintainable systems — not just CRUD.',
+      'I design APIs and microservices in .NET with Clean Architecture, SOLID, and a focus on maintainable systems.',
   },
   ui: {
     skip: 'Skip to content',
@@ -36,20 +36,20 @@ export const en: LocaleContent = {
     about: {
       label: '01 — About',
       title: 'Backend with architectural intent',
-      p1: 'I am a backend developer focused on the .NET ecosystem. I build REST APIs and microservices using Clean Architecture, SOLID, and Clean Code — so every design decision adds long-term flexibility and value.',
-      p2: 'Curious and self-taught: I strengthen architecture, API design, and data optimization while exploring cloud (AWS) and emerging technologies. I care about clean, impactful, sustainable software.',
+      p1: 'Backend developer focused on .NET. I build REST APIs and microservices with Clean Architecture, SOLID, and Clean Code, aiming for clarity and long-term maintainability.',
+      p2: 'I keep strengthening architecture, API design, and data work, while exploring cloud on AWS. I care about clean, useful, sustainable software.',
       certsDivider: 'Licenses & credentials',
       loading: 'Loading certifications…',
     },
     stack: {
       label: '03 — Stack',
       title: 'Tools I build with',
-      lead: 'From domain to infrastructure: C#, APIs, data, and a professional delivery workflow.',
+      lead: 'From domain to delivery: C#, APIs, data, cloud, and CI/CD.',
     },
     projects: {
       label: '04 — Projects',
       title: 'Work that speaks',
-      lead: '.NET microservices and a real job platform — architecture, data, and delivery.',
+      lead: '.NET microservices and a real job platform, with focus on architecture and delivery.',
     },
     experience: {
       label: '05 — Career',
@@ -72,7 +72,7 @@ export const en: LocaleContent = {
     },
     certifications: {
       lead: '{{count}} certificates · They scroll on their own. Click to select one.',
-      hint: 'Drag to explore · Click for details',
+      hint: 'Swipe to explore · Tap for details',
       close: 'Close',
       issued: 'Issued',
       credentialId: 'Credential ID',
@@ -82,9 +82,9 @@ export const en: LocaleContent = {
     recognitions: {
       label: '02 — Recognitions',
       title: 'Milestones worth showing',
-      lead: 'Awards and recognitions that reflect applied learning and visible results.',
+      lead: 'Awards and recognitions for applied learning and concrete results.',
       previewLabel: 'Preview',
-      placeholder: 'Image pending upload',
+      placeholder: 'Image pending',
     },
     footer: {
       tagline: 'Backend · .NET',
@@ -131,7 +131,7 @@ export const en: LocaleContent = {
     {
       title: 'Workflow',
       code: '04',
-      items: ['Git / GitHub', 'Git Flow', 'Conventional Commits', 'Docker', 'Linux'],
+      items: ['Git / GitHub', 'GitHub Flow', 'GitHub Actions', 'AWS', 'Docker'],
     },
   ],
   projects: [
@@ -144,7 +144,7 @@ export const en: LocaleContent = {
       highlights: [
         'API Gateway as single entry point with JWT validation',
         'Persistence with EF Core, Dapper, and ADO.NET',
-        'Docker containerization and Git Flow workflow',
+        'Docker containerization and GitHub Flow workflow',
       ],
       stack: ['C#', '.NET', 'MySQL', 'Docker', 'JWT'],
       links: [

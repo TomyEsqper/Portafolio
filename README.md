@@ -1,59 +1,50 @@
-# Portafolio
+# Tomás Esquivel — Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.27.
+Portfolio personal en Angular 19 para presentar perfil backend `.NET`, proyectos, stack, certificaciones y reconocimientos.
 
-## Development server
+**Live:** [https://d10dom7d35m0q6.cloudfront.net](https://d10dom7d35m0q6.cloudfront.net)
 
-To start a local development server, run:
+## Stack
 
-```bash
-ng serve
-```
+- Angular 19 + TypeScript + SCSS
+- i18n ES/EN con signals
+- AWS: S3 + CloudFront
+- CI/CD: GitHub Actions
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Desarrollo local
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+App en `http://localhost:4200/`.
 
 ```bash
-ng generate --help
+npm run build:prod   # salida en dist/portafolio/browser
+npm test
 ```
 
-## Building
+## Arquitectura de despliegue
 
-To build the project run:
-
-```bash
-ng build
+```text
+Angular build → S3 → CloudFront
+PR → CI (build/test)
+merge a main → CD (deploy automático)
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Infra: `infra/aws/portfolio-static-site.yaml`
+- Guía AWS: `docs/aws-static-deploy.md`
+- Workflows: `.github/workflows/`
 
-## Running unit tests
+El frontend es estático. Lambda no se usa aquí porque no aporta valor al sitio actual; si más adelante se agrega backend, iría como API separada (por ejemplo `.NET` en Lambda).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Flujo de trabajo
 
-```bash
-ng test
-```
+GitHub Flow:
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. rama `feature/...`
+2. Pull Request
+3. CI en verde
+4. merge a `main`
+5. deploy automático a AWS
