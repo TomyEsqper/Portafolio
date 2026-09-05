@@ -42,10 +42,10 @@
 .recognition-preview__title {
   margin: 0 0 0.65rem;
   font-family: var(--display);
-  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  font-size: clamp(1.15rem, 2.6vw, 1.85rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .recognition-card__meta,
@@ -85,7 +85,7 @@
 .recognition-preview__figure {
   display: grid;
   place-items: center;
-  min-height: 18rem;
+  min-height: 14rem;
   margin-bottom: 1.25rem;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.7);
@@ -94,6 +94,7 @@
 
 .recognition-preview__figure img {
   width: 100%;
+  max-height: 22rem;
   height: auto;
   object-fit: contain;
 }
